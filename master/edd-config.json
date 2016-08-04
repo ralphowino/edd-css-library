@@ -1,7 +1,7 @@
 {
-  "name": "Laravel",
-  "slug": "laravel",
+  "name": "Css",
+  "slug": "css",
   "dependencies": {
-    "ralphowino/edd-php-library": "master"
+    "ralphowino/edd-base-library": "master"
   }
 }
