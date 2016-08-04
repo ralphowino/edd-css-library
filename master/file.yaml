@@ -1,0 +1,43 @@
+description: a css styles file
+
+uses: base:file
+
+variables:
+  schema:
+    type: object
+    properties:
+      rules:
+        type: array
+        properties:
+          selectors:
+            type: array
+            properties:
+              selector:
+                type: string
+          styles:
+            type: array
+            properties:
+              prop:
+                type: string
+              value:
+                type: string
+
+  form:
+    - '*'
+
+
+definitions:
+  file_name_suffix: '.css'
+  file_content: |
+    {% if rules %}
+      {% for rule in rules %}
+        {% for selector in rule.selectors %}
+          {{selector.selector}}{% if not loop.last %},{% endif %}
+        {% endfor %}
+        {
+          {% for style in selector.styles %}
+            {{style.prop}}: {{style.value}};
+          {% endfor %}
+        }
+      {% endfor %}
+    {&  endif %}
